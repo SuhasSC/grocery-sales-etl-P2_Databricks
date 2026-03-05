@@ -241,7 +241,13 @@ This project is developed for educational and research purposes.
 
 ## Author
 
-Suhas S Chauhan
+Suhas S Chauhan and Team
+Team Members :
+Rahul Garg 
+Manoj M D
+Revanth Sai Arcot
+Bhaskar Rao Kodimela
+
 
 GitHub:  
 https://github.com/SuhasSC
