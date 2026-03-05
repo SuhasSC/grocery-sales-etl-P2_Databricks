@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project implements an **end-to-end ETL data pipeline** for grocery store sales data using **Databricks, PySpark, and Delta Lake**.  
+This project implements an **end-to-end ETL pipeline** for grocery store sales data using **Databricks, PySpark, and Delta Lake**.  
 The pipeline processes raw retail datasets and transforms them into analytics-ready datasets using the **Medallion Architecture (Bronze → Silver → Gold)**.
 
 The final output enables **sales forecasting and retail analytics** by generating aggregated sales features such as weekly sales trends, promotion impact, and holiday demand patterns.
@@ -30,20 +30,21 @@ These datasets simulate a **real-world retail analytics environment**.
 
 ## Project Architecture
 
-The pipeline follows the **Medallion Architecture**:
+The pipeline follows the **Medallion Architecture**.
 
+```
 Raw Data (Kaggle Dataset)
-↓
+        ↓
 AWS S3 Data Lake
-↓
+        ↓
 Databricks PySpark ETL Pipeline
-↓
+        ↓
 Bronze Layer (Raw Tables)
-↓
+        ↓
 Silver Layer (Cleaned & Integrated Data)
-↓
+        ↓
 Gold Layer (Analytics & Forecasting Features)
-
+```
 
 ---
 
@@ -64,6 +65,7 @@ Tables:
 - `raw.oil_prices`
 
 Operations:
+
 - Raw CSV ingestion
 - Schema validation
 - Metadata tracking
@@ -94,7 +96,7 @@ Output Table:
 ### Gold Layer (Analytics Data)
 
 Purpose:
-- Generate business-ready datasets for analytics and forecasting.
+Generate business-ready datasets for analytics and forecasting.
 
 Features generated:
 
@@ -112,45 +114,43 @@ Output Table:
 
 ## Project Folder Structure
 
+```
 grocery-sales-etl
 │
 ├── ingestion
-│ └── bronze_ingestion.py
+│   └── bronze_ingestion.py
 │
 ├── transformations
-│ └── silver_transformation.py
+│   └── silver_transformation.py
 │
 ├── analytics
-│ └── gold_features.py
+│   └── gold_features.py
 │
 ├── utils
-│ └── data_validation.py
+│   └── data_validation.py
 │
 ├── configs
 │
 ├── workflows
-│
-├── main_pipeline.py
+│   └── main_pipeline.py
 │
 ├── requirements.txt
-│
 └── README.md
-
-
+```
 
 ---
 
 ## Pipeline Execution Flow
 
+```
 bronze_ingestion.py
-↓
+        ↓
 silver_transformation.py
-↓
+        ↓
 gold_features.py
-↓
+        ↓
 main_pipeline.py
-
-
+```
 
 The `main_pipeline.py` script orchestrates the entire ETL pipeline.
 
@@ -158,12 +158,12 @@ The `main_pipeline.py` script orchestrates the entire ETL pipeline.
 
 ## Technologies Used
 
-- **Python**
-- **PySpark**
-- **Databricks**
-- **Delta Lake**
-- **AWS S3**
-- **Git & GitHub**
+- Python
+- PySpark
+- Databricks
+- Delta Lake
+- AWS S3
+- Git & GitHub
 
 ---
 
@@ -174,83 +174,74 @@ Clone the repository:
 ```bash
 git clone https://github.com/SuhasSC/grocery-sales-etl-P2_Databricks.git
 cd grocery-sales-etl
+```
 
 Install dependencies:
+
+```bash
 pip install -r requirements.txt
+```
 
-Running the Pipeline
+---
 
-Run the pipeline locally:
+## Running the Pipeline
+
+Run the ETL pipeline locally:
+
+```bash
 python main_pipeline.py
-
+```
 
 Pipeline stages executed:
 
-1. Raw data ingestion (Bronze)
+1. Raw data ingestion (Bronze Layer)
+2. Data cleaning and transformation (Silver Layer)
+3. Feature engineering and aggregation (Gold Layer)
 
-2. Data cleaning and integration (Silver)
+---
 
-3. Feature engineering and aggregation (Gold)
+## Business Insights Generated
 
-Business Insights Generated
+The pipeline enables several retail analytics insights.
 
-The pipeline enables several retail analytics insights:
-
-Sales Trends
-
+### Sales Trends
 Identify weekly and seasonal demand patterns.
 
-Store Performance
-
+### Store Performance
 Determine top-performing stores based on revenue.
 
-Product Category Analysis
-
+### Product Category Analysis
 Identify high-demand product families.
 
-Promotion Effectiveness
-
+### Promotion Effectiveness
 Measure sales increase during promotional campaigns.
 
-Holiday Impact
-
+### Holiday Impact
 Analyze how holidays affect product demand.
 
-Customer Traffic Analysis
-
-Evaluate relationship between store transactions and sales.
-
-
-Future Enhancements
-
-Integrate real-time data ingestion
-
-Build machine learning forecasting models
-
-Create interactive dashboards (Power BI / Tableau)
-
-Implement data quality monitoring
-
-License
-
-This project is developed for educational and research purposes
-
+### Customer Traffic Analysis
+Evaluate the relationship between store transactions and sales.
 
 ---
 
-✅ This README includes:
+## Future Enhancements
 
-- Project context  
-- Architecture  
-- ETL pipeline explanation  
-- Business insights  
-- Setup instructions  
-- Professional formatting
-
-It will make your **GitHub project look like a real Data Engineering portfolio project**.
+- Integrate real-time data ingestion
+- Build machine learning forecasting models
+- Create interactive dashboards (Power BI / Tableau)
+- Implement automated data quality monitoring
 
 ---
 
-If you want, I can also give you **one more very important thing for your project**:
+## License
 
-A **perfect architecture diagram image you can directly paste into the README and PPT** (looks much more professional than text diagrams).
+This project is developed for educational and research purposes.
+
+---
+
+## Author
+
+Suhas S Chauhan
+
+GitHub:  
+https://github.com/SuhasSC
