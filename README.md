@@ -16,6 +16,7 @@ The final output enables **sales forecasting and retail analytics** by generatin
 
 ---
 
+
 # Dataset
 
 ## Dataset Source
@@ -36,30 +37,15 @@ These datasets simulate a **real-world retail analytics environment**.
 
 ---
 
-# Project Architecture
+## Project Architecture
 
 The pipeline integrates **AWS services, Databricks processing, and DBT analytics modeling**.
 
-```
-Kaggle Dataset
-      ↓
-AWS S3 Data Lake
-      ↓
-AWS Glue Crawler & Data Catalog
-      ↓
-Apache Airflow (Pipeline Orchestration)
-      ↓
-Databricks PySpark Processing
-      ↓
-Bronze Layer (Raw Data)
-      ↓
-Silver Layer (Cleaned & Integrated Data)
-      ↓
-Gold Layer (Analytics Features using DBT)
-      ↓
-Analytics Dashboards (Databricks / BI Tools)
-```
+### End-to-End System Architecture
 
+<p align="center">
+  <img src="images/architecture_diagram.png" width="1000">
+</p>
 ---
 
 # Medallion Architecture Layers
@@ -137,7 +123,7 @@ analytics.sales_forecast_features
 
 ---
 
-# Pipeline Orchestration
+# **Air Flow** (Pipeline Orchestration)
 
 The pipeline is orchestrated using **Apache Airflow DAGs**.
 
