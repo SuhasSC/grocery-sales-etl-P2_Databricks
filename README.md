@@ -2,21 +2,29 @@
 
 ## Project Overview
 
-This project implements an **end-to-end ETL pipeline** for grocery store sales data using **Databricks, PySpark, and Delta Lake**.  
-The pipeline processes raw retail datasets and transforms them into analytics-ready datasets using the **Medallion Architecture (Bronze → Silver → Gold)**.
+This project implements an **end-to-end ETL pipeline for grocery store sales data** using **AWS, Databricks, PySpark, Delta Lake, and DBT**.
 
-The final output enables **sales forecasting and retail analytics** by generating aggregated sales features such as weekly sales trends, promotion impact, and holiday demand patterns.
+The pipeline processes raw retail datasets and transforms them into **analytics-ready datasets** using the **Medallion Architecture (Bronze → Silver → Gold)**.
+
+The final output enables **sales forecasting and retail analytics** by generating aggregated sales features such as:
+
+- Weekly sales trends
+- Promotion impact metrics
+- Holiday demand patterns
+- Store performance insights
+- Customer activity insights
 
 ---
 
-## Dataset
+# Dataset
 
-Dataset Source:  
-Kaggle – *Store Sales Time Series Forecasting*
+## Dataset Source
+
+Kaggle – **Store Sales Time Series Forecasting**
 
 The dataset contains historical grocery sales data from **Corporación Favorita**, a large grocery retailer in Ecuador.
 
-Datasets used:
+### Datasets Used
 
 - `train.csv` → Historical sales data
 - `stores.csv` → Store metadata
@@ -28,91 +36,143 @@ These datasets simulate a **real-world retail analytics environment**.
 
 ---
 
-## Project Architecture
+# Project Architecture
 
-The pipeline follows the **Medallion Architecture**.
+The pipeline integrates **AWS services, Databricks processing, and DBT analytics modeling**.
 
 ```
-Raw Data (Kaggle Dataset)
-        ↓
+Kaggle Dataset
+      ↓
 AWS S3 Data Lake
-        ↓
-Databricks PySpark ETL Pipeline
-        ↓
-Bronze Layer (Raw Tables)
-        ↓
+      ↓
+AWS Glue Crawler & Data Catalog
+      ↓
+Apache Airflow (Pipeline Orchestration)
+      ↓
+Databricks PySpark Processing
+      ↓
+Bronze Layer (Raw Data)
+      ↓
 Silver Layer (Cleaned & Integrated Data)
-        ↓
-Gold Layer (Analytics & Forecasting Features)
+      ↓
+Gold Layer (Analytics Features using DBT)
+      ↓
+Analytics Dashboards (Databricks / BI Tools)
 ```
 
 ---
 
-## Medallion Architecture Layers
+# Medallion Architecture Layers
 
-### Bronze Layer (Raw Data)
+## Bronze Layer (Raw Data)
 
-Purpose:
+### Purpose
+
 - Store raw data exactly as received
 - Preserve data lineage
+- Enable traceability of raw ingestion
 
-Tables:
+### Tables
 
-- `raw.sales_transactions`
-- `raw.stores`
-- `raw.transactions`
-- `raw.holidays`
-- `raw.oil_prices`
+```
+raw.sales_transactions
+raw.stores
+raw.transactions
+raw.holidays
+raw.oil_prices
+```
 
-Operations:
+### Operations
 
-- Raw CSV ingestion
+- Raw CSV ingestion from AWS S3
 - Schema validation
-- Metadata tracking
+- Metadata registration via AWS Glue
 
 ---
 
-### Silver Layer (Cleaned Data)
+## Silver Layer (Cleaned Data)
 
-Purpose:
+### Purpose
+
 - Clean and standardize datasets
-- Integrate multiple data sources
+- Integrate multiple datasets
 
-Transformations:
+### Transformations
 
 - Remove duplicate records
 - Convert data types
 - Handle missing values
 - Join sales data with store metadata
 - Join transaction data with sales records
-- Extract date-based features
+- Extract date features
 
-Output Table:
+### Output Table
 
-- `processed.sales_cleaned`
+```
+processed.sales_cleaned
+```
 
 ---
 
-### Gold Layer (Analytics Data)
+## Gold Layer (Analytics Data)
 
-Purpose:
-Generate business-ready datasets for analytics and forecasting.
+### Purpose
 
-Features generated:
+Generate **business-ready datasets for analytics and forecasting**.
+
+### Features Generated
 
 - Weekly sales aggregation
 - Promotion impact metrics
 - Holiday sales indicators
 - Store performance metrics
 - Product category trends
+- Customer transaction insights
 
-Output Table:
+### Output Table
 
-- `analytics.sales_forecast_features`
+```
+analytics.sales_forecast_features
+```
 
 ---
 
-## Project Folder Structure
+# Pipeline Orchestration
+
+The pipeline is orchestrated using **Apache Airflow DAGs**.
+
+### Airflow DAG Tasks
+
+```
+Task 1: Bronze Pipeline
+Task 2: Silver Pipeline
+Task 3: Gold Pipeline
+```
+
+### Scheduling
+
+Pipelines run on a **daily schedule** for automated data processing.
+
+---
+
+# Data Quality Checks
+
+Implemented checks include:
+
+- Null value validation
+- Duplicate detection
+- Schema validation
+- Row count checks
+
+Alerts and logs are monitored using:
+
+- Airflow logs
+- Databricks logs
+- AWS S3 logs
+
+---
+
+# Project Folder Structure
 
 ```
 grocery-sales-etl
@@ -140,7 +200,7 @@ grocery-sales-etl
 
 ---
 
-## Pipeline Execution Flow
+# Pipeline Execution Flow
 
 ```
 bronze_ingestion.py
@@ -156,18 +216,21 @@ The `main_pipeline.py` script orchestrates the entire ETL pipeline.
 
 ---
 
-## Technologies Used
+# Technologies Used
 
 - Python
 - PySpark
 - Databricks
 - Delta Lake
 - AWS S3
+- AWS Glue
+- Apache Airflow
+- DBT
 - Git & GitHub
 
 ---
 
-## Installation
+# Installation
 
 Clone the repository:
 
@@ -184,7 +247,7 @@ pip install -r requirements.txt
 
 ---
 
-## Running the Pipeline
+# Running the Pipeline
 
 Run the ETL pipeline locally:
 
@@ -200,58 +263,118 @@ Pipeline stages executed:
 
 ---
 
-## Business Insights Generated
+# Analytics Dashboards & Artifacts
+
+This section contains **dashboards generated from the analytics (Gold layer) dataset**.
+
+---
+
+## Store Performance Dashboard
+
+Analyzes store-level performance across different store IDs, cities, and states.
+
+![Store Performance Dashboard](images/store_performance_dashboard.png)
+
+---
+
+## Sales Trends Dashboard
+
+Shows time-based sales patterns including **daily, weekly, and quarterly trends**.
+
+![Sales Trends Dashboard](images/sales_trends_dashboard.png)
+
+---
+
+## Product Category Analysis Dashboard
+
+Analyzes **sales distribution across product families** to identify high-performing categories.
+
+![Product Category Dashboard](images/product_category_dashboard.png)
+
+---
+
+## Promotion Impact Dashboard
+
+Evaluates how **promotions influence total sales performance**.
+
+![Promotion Impact Dashboard](images/promotion_dashboard.png)
+
+---
+
+## Holiday Impact Dashboard
+
+Analyzes **holiday events and their effect on sales performance**.
+
+![Holiday Impact Dashboard](images/holiday_dashboard.png)
+
+---
+
+## Customer Activity Dashboard
+
+Analyzes **customer transaction activity and its relationship with sales performance**.
+
+![Customer Activity Dashboard](images/customer_activity_dashboard.png)
+
+---
+
+# Business Insights Generated
 
 The pipeline enables several retail analytics insights.
 
 ### Sales Trends
+
 Identify weekly and seasonal demand patterns.
 
 ### Store Performance
+
 Determine top-performing stores based on revenue.
 
 ### Product Category Analysis
+
 Identify high-demand product families.
 
 ### Promotion Effectiveness
+
 Measure sales increase during promotional campaigns.
 
 ### Holiday Impact
+
 Analyze how holidays affect product demand.
 
 ### Customer Traffic Analysis
+
 Evaluate the relationship between store transactions and sales.
 
 ---
 
-## Future Enhancements
+# Future Enhancements
 
 - Integrate real-time data ingestion
 - Build machine learning forecasting models
-- Create interactive dashboards (Power BI / Tableau)
+- Create advanced BI dashboards
 - Implement automated data quality monitoring
 
 ---
 
-## License
+# License
 
-This project is developed for educational and research purposes.
+This project is developed for **educational and research purposes**.
 
 ---
 
-## Author
+# Author
 
-**Project Lead**
+### Project Lead
 
-Suhas S Chauhan  
+**Suhas S Chauhan**
 
-**Team Members**
+### Team Members
 
-- Rahul Garg  
-- Manoj M D  
-- Revanth Sai Arcot  
-- Bhaskar Rao Kodimela  
+- Rahul Garg
+- Manoj M D
+- Revanth Sai Arcot
+- Bhaskar Rao Kodimela
 
-**GitHub**
+GitHub:
 
 https://github.com/SuhasSC
