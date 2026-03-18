@@ -44,7 +44,7 @@ The pipeline integrates **AWS services, Databricks processing, and DBT analytics
 ### End-to-End System Architecture
 
 <p align="center">
-  <img src="images/architecture_diagram.png" width="1000">
+  <img src="Dashboard/images/architecture_diagram.png" width="1000">
 </p>
 ---
 
@@ -161,26 +161,24 @@ Alerts and logs are monitored using:
 # Project Folder Structure
 
 ```
-grocery-sales-etl
+grocery-sales-etl-P2_Databricks
 │
-├── ingestion
-│   └── bronze_ingestion.py
+├── Datasets
+│ └── raw_data
 │
-├── transformations
-│   └── silver_transformation.py
+├── Development
+│ ├── Bronze
+│ ├── Silver
+│ └── Gold
+│ └── DAG      
 │
-├── analytics
-│   └── gold_features.py
+├── Testing
+│ └── data_quality
 │
-├── utils
-│   └── data_validation.py
+├── Dashboard
+│ ├── My_Dashboard.pdf
+│ └── images
 │
-├── configs
-│
-├── workflows
-│   └── main_pipeline.py
-│
-├── requirements.txt
 └── README.md
 ```
 
@@ -259,7 +257,7 @@ This section contains **dashboards generated from the analytics (Gold layer) dat
 
 Analyzes store-level performance across different store IDs, cities, and states.
 
-![Store Performance Dashboard](images/store_performance_dashboard.png)
+![Store Performance Dashboard](Dashboard/images/store_performance_dashboard.png)
 
 ---
 
@@ -267,7 +265,7 @@ Analyzes store-level performance across different store IDs, cities, and states.
 
 Shows time-based sales patterns including **daily, weekly, and quarterly trends**.
 
-![Sales Trends Dashboard](images/sales_trends_dashboard.png)
+![Sales Trends Dashboard](Dashboard/images/sales_trends_dashboard.png)
 
 ---
 
@@ -275,7 +273,7 @@ Shows time-based sales patterns including **daily, weekly, and quarterly trends*
 
 Analyzes **sales distribution across product families** to identify high-performing categories.
 
-![Product Category Dashboard](images/product_category_dashboard.png)
+![Product Category Dashboard](Dashboard/images/product_category_dashboard.png)
 
 ---
 
@@ -283,25 +281,22 @@ Analyzes **sales distribution across product families** to identify high-perform
 
 Evaluates how **promotions influence total sales performance**.
 
-![Promotion Impact Dashboard](images/promotion_dashboard.png)
+![Promotion Impact Dashboard](Dashboard/images/promotion_dashboard.png)
 
----
 
 ## Holiday Impact Dashboard
 
 Analyzes **holiday events and their effect on sales performance**.
 
-![Holiday Impact Dashboard](images/holiday_dashboard.png)
+![Holiday Impact Dashboard](Dashboard/images/holiday_dashboard.png)
 
----
 
 ## Customer Activity Dashboard
 
 Analyzes **customer transaction activity and its relationship with sales performance**.
 
-![Customer Activity Dashboard](images/customer_activity_dashboard.png)
+![Customer Activity Dashboard](Dashboard/images/customer_activity_dashboard.png)
 
----
 
 # Business Insights Generated
 
