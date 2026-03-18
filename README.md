@@ -54,7 +54,7 @@ The pipeline integrates **AWS services, Databricks processing, and DBT analytics
 </p>
 ---
 
-# ETL Pipeline (Medallion Architecture Layers)
+# ETL Pipeline Design (Medallion Architecture Layers)
 
 ## Bronze Layer (Raw Data)
 
@@ -108,6 +108,9 @@ processed.sales_cleaned
 
 ## Gold Layer (Analytics Data)
 
+### Star Scheme
+<img width="1536" height="1024" alt="ChatGPT Image Mar 18, 2026, 03_48_41 PM" src="https://github.com/user-attachments/assets/ff7f9675-0b47-4ff5-a19b-6eaa6ec6185f" />
+
 ### Purpose
 
 Generate **business-ready datasets for analytics and forecasting**.
@@ -145,6 +148,10 @@ Task 3: Gold Pipeline
 
 Pipelines run on a **daily schedule** for automated data processing.
 
+### Alerts
+
+* Integrated Slack alerts in **Apache Airflow DAG** to automatically notify on task failures with details like DAG ID, task ID, execution time, and log links.
+* Configured success notifications to send pipeline completion status and runtime metrics to Slack for real-time monitoring.
 ---
 
 # Data Quality Checks
@@ -236,10 +243,6 @@ pip install -r requirements.txt
 ```
 
 ---
-# Alerts
-
-* Integrated Slack alerts in **Apache Airflow DAG** to automatically notify on task failures with details like DAG ID, task ID, execution time, and log links.
-* Configured success notifications to send pipeline completion status and runtime metrics to Slack for real-time monitoring.
 
 
 # Running the Pipeline
