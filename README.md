@@ -14,6 +14,12 @@ The final output enables **sales forecasting and retail analytics** by generatin
 - Store performance insights
 - Customer activity insights
 
+# Objective
+* Build a scalable end-to-end ETL pipeline for retail sales data using modern data engineering tools.
+* Transform raw datasets into structured, analytics-ready formats using Medallion Architecture (Bronze, Silver, Gold).
+* Generate business insights such as sales trends, promotion impact, and store performance.
+* Enable data-driven decision making and support future sales forecasting models.
+
 ---
 
 
@@ -48,7 +54,7 @@ The pipeline integrates **AWS services, Databricks processing, and DBT analytics
 </p>
 ---
 
-# Medallion Architecture Layers
+# ETL Pipeline (Medallion Architecture Layers)
 
 ## Bronze Layer (Raw Data)
 
