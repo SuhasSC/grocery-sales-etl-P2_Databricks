@@ -14,7 +14,7 @@ The final output enables **sales forecasting and retail analytics** by generatin
 - Store performance insights
 - Customer activity insights
 
-# Objective
+## Objective
 * Build a scalable end-to-end ETL pipeline for retail sales data using modern data engineering tools.
 * Transform raw datasets into structured, analytics-ready formats using Medallion Architecture (Bronze, Silver, Gold).
 * Generate business insights such as sales trends, promotion impact, and store performance.
@@ -236,6 +236,11 @@ pip install -r requirements.txt
 ```
 
 ---
+# Alerts
+
+* Integrated Slack alerts in **Apache Airflow DAG** to automatically notify on task failures with details like DAG ID, task ID, execution time, and log links.
+* Configured success notifications to send pipeline completion status and runtime metrics to Slack for real-time monitoring.
+
 
 # Running the Pipeline
 
@@ -357,7 +362,6 @@ This project is developed for **educational and research purposes**.
 
 ### Team Members
 
-- Rahul Garg
 - Manoj M D
 - Revanth Sai Arcot
 - Bhaskar Rao Kodimela
