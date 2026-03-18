@@ -50,7 +50,7 @@ The pipeline integrates **AWS services, Databricks processing, and DBT analytics
 ### End-to-End System Architecture
 
 <p align="center">
-  <img src="Dashboard/images/architecture_diagram.png" alt="Architecture Diagram" style="width:100%; max-width:1000px; height:500px; object-fit:contain; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15);" />
+  <img src="Dashboard/images/architecture_diagram.png" alt="Architecture Diagram" style="width:100%; max-width:800px; height:400px; object-fit:contain; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15);" />
 </p>
 ---
 
@@ -109,7 +109,7 @@ processed.sales_cleaned
 ## Gold Layer (Analytics Data)
 
 ### Star Scheme
-<img width="1536" height="1024" alt="ChatGPT Image Mar 18, 2026, 03_48_41 PM" src="https://github.com/user-attachments/assets/ff7f9675-0b47-4ff5-a19b-6eaa6ec6185f" />
+<img width="1000" height="800" alt="ChatGPT Image Mar 18, 2026, 03_48_41 PM" src="https://github.com/user-attachments/assets/ff7f9675-0b47-4ff5-a19b-6eaa6ec6185f" />
 
 ### Purpose
 
