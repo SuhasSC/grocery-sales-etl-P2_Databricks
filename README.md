@@ -108,7 +108,7 @@ processed.sales_cleaned
 
 ## Gold Layer (Analytics Data)
 
-### Star Scheme
+### Star Schema
 <img width="1000" height="800" alt="ChatGPT Image Mar 18, 2026, 03_48_41 PM" src="https://github.com/user-attachments/assets/ff7f9675-0b47-4ff5-a19b-6eaa6ec6185f" />
 
 ### Purpose
