@@ -9,7 +9,7 @@ The pipeline processes raw retail datasets and transforms them into **analytics-
 The final output enables **sales forecasting and retail analytics** by generating aggregated sales features such as:
 
 - Weekly sales trends
-- Promotion impact metrics
+- Promotion impact metric
 - Holiday demand patterns
 - Store performance insights
 - Customer activity insights
